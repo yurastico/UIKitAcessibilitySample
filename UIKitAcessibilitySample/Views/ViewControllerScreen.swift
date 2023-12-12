@@ -44,6 +44,13 @@ class ViewControllerScreen: UIView {
         return label
     }()
     
+    lazy var imageView: UIImageView  = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "trash")
+        return image
+    }()
+    
     lazy var positionThreeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -96,6 +103,7 @@ class ViewControllerScreen: UIView {
         addSubview(positionFourLabel)
         addSubview(positionFiveLabel)
         addSubview(loginButton)
+        addSubview(imageView)
     }
     
     required init?(coder: NSCoder) {
@@ -130,6 +138,10 @@ class ViewControllerScreen: UIView {
             
             loginButton.topAnchor.constraint(equalTo: positionFiveLabel.bottomAnchor, constant: 20),
             loginButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 120),
+            imageView.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
     
